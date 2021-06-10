@@ -28,7 +28,7 @@ const registerPath = async (req, res, next)=> {
     else {
       const data = new PagesView({ 
         path : path,
-        userAgent : req.get('User-Agent'),
+        userAgent : req.headers["user-agent"],
         date : Date(),
         view : 1
       })
