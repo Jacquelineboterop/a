@@ -85,7 +85,6 @@ app.get("/notes/:id", registerPath, async (req, res) => {
 
 app.get("/analytics", registerPath, async (req, res) => {
     PagesView.find().sort({view:-1}).exec((error, elements) =>{
-
       let trString = "";
       
       elements.map( (value) =>{
