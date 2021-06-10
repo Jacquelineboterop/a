@@ -101,7 +101,7 @@ app.get("/analytics", registerPath, async (req, res) => {
       <table>
           <thead>
               <th>Path</th>
-              <th>View</th>
+              <th>Visits</th>
           </thead>
           <tbody>
               ${trString}
