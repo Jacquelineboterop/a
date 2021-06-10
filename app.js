@@ -61,7 +61,7 @@ app.get("/notes/new", registerPath, async (req, res) => {
  res.render("new", { notes: notes });
 });
 
-app.post("/notes", registerPath, async (req, res, next) => {
+app.post("/notes", async (req, res, next) => {
   const data = {
     title: req.body.title,
     body: req.body.body
