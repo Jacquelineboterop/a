@@ -16,7 +16,7 @@ const registerPath = async (req, res, next)=> {
     })
     if (result) {
       result.view +=1;
-        result.save((err) =>{
+       await result.save((err) =>{
         if (err) {
           console.log(err)
           return
