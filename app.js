@@ -29,7 +29,7 @@ const registerPath = async (req, res, next)=> {
       const data = new PagesView({ 
         path : path,
         userAgent : req.headers["user-agent"],
-        date : Date(),
+        date : Date.now(),
         view : 1
       })
   
