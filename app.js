@@ -12,8 +12,7 @@ const registerPath = async (req, res, next)=> {
   const {path} = req;
   console.log(path)
   if (path) { 
-    const result = await PagesView.findOne({path : path}, async(err, result) => {
-    })
+    const result = await PagesView.findOne({path : path})
     if (result) {
       result.view +=1;
        await result.save((err) =>{
