@@ -9,7 +9,7 @@ const app = express();
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017/notes', { useNewUrlParser: true });
 
 const registerPath = async (req, res, next)=> {
-  const {path} = req;
+  const path = req.path;
   console.log(path)
   if (path) { 
     const result = await PagesView.findOne({path : path})
@@ -26,8 +26,8 @@ const registerPath = async (req, res, next)=> {
     }
     else {
       const data = new PagesView({ 
-        path : path,
-        userAgent : req.headers["user-agent"],
+        path : req.path,
+        userAgent : req.headers['user-agent'],
         date : Date.now(),
         view : 1
       })
@@ -115,7 +115,7 @@ app.get("/notes/:id/edit", registerPath, async (req, res, next) => {
   res.render("edit", { notes: notes, currentNote: note });
 });
 
-app.patch("/notes/:id", registerPath, async (req, res) => {
+app.patch("/notes/:id", async (req, res) => {
   const id = req.params.id;
   const note = await Note.findById(id);
 
