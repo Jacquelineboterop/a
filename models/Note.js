@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 
 const NoteSchema = new mongoose.Schema({
-  name: { type: String },
-  price: { type: Number }
+  title: { type: String },
+  body: { type: String }
+  
 });
 NoteSchema.methods.truncateBody = function() {
   if (this.body && this.body.length > 75) {
