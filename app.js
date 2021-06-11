@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const Note = require("./models/Note");
+const Product = require("./models/Product");
 const app = express();
 
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017/notes', { useNewUrlParser: true });
@@ -8,8 +8,8 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017/notes', {
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/products", async (req, res) => {
- const notes = await Note.find();
- res.json(notes);
+ const products = await Product.find();
+ res.json(products);
 });
 
 
